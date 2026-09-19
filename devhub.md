@@ -104,5 +104,5 @@ Success! We have recovered the root user’s SSH key. After formatting the key, 
 
 <img src="Images/25-Root-Access.png" width="600">
 
-<img src="Images/26-Root-Access2.png" width="600">
+<img src="Images/26-Root-Access2.png" width="400">
 
