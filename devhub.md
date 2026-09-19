@@ -68,6 +68,7 @@ stty raw -echo; fg
 Next, we will secure an SSH connection for the analyst user and log in:
 
 <img src="Images/16-Stabilization2.png" width="600">
+
 […]
 <img src="Images/17-Stabilisation3.png" width="600">
 
@@ -104,5 +105,6 @@ Success! We have recovered the root user’s SSH key. After formatting the key, 
 
 <img src="Images/25-Root-Access.png" width="600">
 […]
+
 <img src="Images/26-Root-Access2.png" width="600">
 
