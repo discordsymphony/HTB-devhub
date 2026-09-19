@@ -61,8 +61,11 @@ Finally, we will set up a listener and click the play button to execute our reve
 Commands to stabilise the shell:
 
 python3 -c ‘import  pty;pty.spawn(“/bin/bash”)’
+
 export TERM=xterm
+
 ctrl-z
+
 stty raw -echo; fg
 
 Next, we will secure an SSH connection for the analyst user and log in:
