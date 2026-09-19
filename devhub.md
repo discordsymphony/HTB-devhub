@@ -69,7 +69,6 @@ Next, we will secure an SSH connection for the analyst user and log in:
 
 <img src="Images/16-Stabilization2.png" width="600">
 
-[…]
 <img src="Images/17-Stabilisation3.png" width="600">
 
 Enumerating the machine with our new user, we discover the file /opt/opsmcp/server.py. Inspecting this file we discover a secret key:
@@ -104,7 +103,6 @@ I used AI for this, but eventually was able to identify the correct call with th
 Success! We have recovered the root user’s SSH key. After formatting the key, we can log into the machine as root. This is shown below:
 
 <img src="Images/25-Root-Access.png" width="600">
-[…]
 
 <img src="Images/26-Root-Access2.png" width="600">
 
