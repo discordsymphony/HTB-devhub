@@ -66,4 +66,8 @@ As we can see, MCPJam is shown to be running. Let's investigate that next:
 
 <img src="Images/04-MCPjam.png" width="600">
 
-This reveals the version is 1.4.2.
+This reveals the version is 1.4.2. A search for related exploits reveals the following Proof of Concept:
+
+<img src="Images/05-Exploit-Location.png" width="600">
+
+
