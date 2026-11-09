@@ -238,5 +238,13 @@ Next, we will generate a Python3 reverse shell using RevShells and execute the c
 
 <img src="Images/28-revshell.png" width="600">
 
+Once we execute the code, we catch a reverse shell, as shown below:
 
+#### Output:
+
+```
+Listening on 0.0.0.0 4444
+Connection received on 10.129.245.216 59334
+analyst@devhub:~/notebooks$
+```
 
