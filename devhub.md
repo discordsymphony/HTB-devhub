@@ -58,7 +58,7 @@ PORT     STATE SERVICE VERSION
 |_    Connection: close
 ```
 
-## User -> MCP Dev
+## User -> MCP-Dev
 
 The results reveal that an Nginx web server is running on port 80 and MCPJam Inspector is running on port 6274. Let's visit port 80:
 
@@ -120,5 +120,5 @@ ctrl-z
 stty raw -echo; fg
 ```
 
-## MCP Dev -> Analyst
+## MCP-Dev -> Analyst
 
