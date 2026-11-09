@@ -109,3 +109,11 @@ id
 uid=1001(mcp-dev) gid=1001(mcp-dev) groups=1001(mcp-dev)
 ```
 
+We then use the following commands to stabilise the shell:
+
+```bash
+python3 -c ‘import pty;pty.spawn(“/bin/bash”)’
+export TERM=xterm
+ctrl-z
+stty raw -echo; fg
+```
