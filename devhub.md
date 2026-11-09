@@ -234,8 +234,6 @@ nc -lvnp 4444
 
 Next, we will generate a Python3 reverse shell using RevShells and execute the code within the Python console:
 
-<img src="Images/27-revshells.png" width="600">
-
 <img src="Images/28-revshell.png" width="600">
 
 Once we execute the code, we catch a reverse shell, as shown below:
