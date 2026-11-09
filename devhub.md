@@ -386,3 +386,18 @@ Now we are able to format this key using Sed. First, paste the private key into 
 ```
 sed 's/\\n/\n/g' unformatted_key.txt > id_rsa
 ```
+
+Finally, we can log into the machine using the above key:
+
+#### Logging in:
+
+```
+ssh -i id_rsa root@10.129.245.216
+```
+
+#### Output:
+
+```
+root@devhub:~# id
+uid=0(root) gid=0(root) groups=0(root)
+```
