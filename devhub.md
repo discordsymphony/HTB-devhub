@@ -1,5 +1,3 @@
-<img src="Images/01-Banner.png" width="600">
-
 ## HTB-DevHub
 
 We will begin this machine by using Nmap to scan the server for all open TCP ports, service versions and perform script scanning:
