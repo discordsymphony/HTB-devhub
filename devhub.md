@@ -220,5 +220,6 @@ Now we will visit port 8888 on our attacker machine before using our newly disco
 
 <img src="Images/13-Jupyter1.png" width="600">
 
+Logging into Jupyter reveals that we have access to a Python console:
 
 
