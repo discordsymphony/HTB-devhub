@@ -62,3 +62,8 @@ The results reveal that an Nginx web server is running on port 80 and MCPJam Ins
 
 <img src="Images/03-Landing.png" width="600">
 
+As we can see, MCPJam is shown to be running. Let's investigate that next:
+
+<img src="Images/04-MCPjam.png" width="600">
+
+This reveals the version is 1.4.2.
