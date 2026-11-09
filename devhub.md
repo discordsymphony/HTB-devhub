@@ -222,4 +222,11 @@ Now we will visit port 8888 on our attacker machine before using our newly disco
 
 Logging into Jupyter reveals that we have access to a Python console:
 
+<img src="Images/14-Jupyter2.png" width="600">
+
+Next, we will generate a Python3 reverse shell using RevShells and execute the code within the Python console:
+
+<img src="Images/27-revshells.png" width="600">
+
+
 
