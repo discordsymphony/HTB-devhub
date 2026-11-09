@@ -224,9 +224,19 @@ Logging into Jupyter reveals that we have access to a Python console:
 
 <img src="Images/14-Jupyter2.png" width="600">
 
+Let's set up a Netcat listener first:
+
+#### Start Netcat listener:
+
+```
+nc -lvnp 4444
+```
+
 Next, we will generate a Python3 reverse shell using RevShells and execute the code within the Python console:
 
 <img src="Images/27-revshells.png" width="600">
+
+<img src="Images/28-revshell.png" width="600">
 
 
 
