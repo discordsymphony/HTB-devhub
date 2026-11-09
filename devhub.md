@@ -208,3 +208,17 @@ ps aux | grep analyst
 --ServerApp.token=a7f3b2c9d8e1f4a5b6c7d8e9f0a1b2c3d4e5f6a7
 ```
 
+The process also discloses that port 8888 is running Jupyter Notebook. Let's forward that port using our SSH session:
+
+#### Port forwarding:
+
+```
+ssh -i /root/.ssh/id_ed25519 mcp-dev@10.129.245.216 -L 8888:127.0.0.1:8888
+```
+
+Now we will visit port 8888 on our attacker machine before using our newly discovered token to log into Jupyter Notebook:
+
+<img src="Images/13-Jupyter1.png" width="600">
+
+
+
