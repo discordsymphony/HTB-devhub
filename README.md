@@ -21,5 +21,5 @@ Enumeration of the machine as analyst, leads us to discover the file /opt/opsmcp
 
 | Finding         | Severity     | Impact                                                         |
 | :-------------- | :----------- | :------------------------------------------------------------- |
-| CVE-2023-43208 | Critical:&nbsp;9.8 | Remote Code Execution on a remote server running Mirth Connect. |
-| Python string Evaluation | High:&nbsp;8.0 | Remote Code Execution leading to privilege escalation on local machine. |
+| CVE-2026-23744 | Critical:&nbsp;9.8 | Remote Code Execution on a remote server running MCPJam 1.4.2. |
+| Sensitive token revealed in processes | High:&nbsp;8.0 | Access gained to Jupyter Notebook. |
