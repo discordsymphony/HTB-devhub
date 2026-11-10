@@ -22,4 +22,5 @@ Enumeration of the machine as analyst, leads us to discover the file /opt/opsmcp
 | Finding         | Severity     | Impact                                                         |
 | :-------------- | :----------- | :------------------------------------------------------------- |
 | CVE-2026-23744 | Critical:&nbsp;9.8 | Remote Code Execution on a remote server running MCPJam 1.4.2. |
-| Sensitive token revealed in processes | High:&nbsp;8.0 | Access gained to Jupyter Notebook. |
+| Jupyter token disclosed, leading to code execution | High:&nbsp;8.9 | Access gained to Jupyter Notebook. |
+| Hidden software functionality, leading to privilege escalation | Critical:&nbsp;9.5 | Disclosure of root SSH key. |
